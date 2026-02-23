@@ -24,7 +24,7 @@
 | employment_years  | float     | Стаж работы клиента (в годах)                          | 5.5                  |
 | marital_status    | string    | Семейное положение                                     | Married              |
 | education_level   | string    | Уровень образования                                    | Higher education     |
-|住房_status        | string    | Статус жилья (собственное, ипотека, аренда и т.п.)     | Own                  |
+| housing_status    | string    | Статус жилья (собственное, ипотека, аренда и т.п.)     | Own                  |
 
 В дальнейшем этот словарь данных будет дорабатываться и расширяться.  
 Разные версии файла `data_dictionary.md` будут сравниваться с помощью команды `git diff`.

@@ -12,6 +12,9 @@ data/*.csv
 data/*.xlsx
 data/*.json
 
+# Root-level dataset file for the lab
+course_project_test.csv
+
 # System files
 .DS_Store
 Thumbs.db
