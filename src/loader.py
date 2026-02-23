@@ -21,6 +21,9 @@ def load_data(path: str):
 
 
 if __name__ == "__main__":
-    # Вариант 10: используем датасет course_project_test.csv в корне проекта
-    load_data("course_project_test.csv")
-
+    # Вариант 10: пробуем сначала искать датасет в подкаталоге data,
+    # а при отсутствии файла — в корне проекта.
+    if Path("data/course_project_test.csv").exists():
+        load_data("data/course_project_test.csv")
+    else:
+        load_data("course_project_test.csv")
