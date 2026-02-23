@@ -21,6 +21,6 @@ def load_data(path: str):
 
 
 if __name__ == "__main__":
-    # Вариант 10: используем датасет course_project_test.csv
+    # Вариант 10: используем датасет course_project_test.csv в корне проекта
     load_data("course_project_test.csv")
 
