@@ -34,21 +34,21 @@ pipeline {
         stage('Build Image') {
             steps {
                 dir('Lab2') {
-                    sh "docker build -t ${IMAGE_NAME}:${BUILD_NUMBER} ."
+                    sh "/usr/bin/docker build -t ${IMAGE_NAME}:${BUILD_NUMBER} ."
                 }
             }
         }
 
         stage('Test Run') {
             steps {
-                sh "docker run --rm ${IMAGE_NAME}:${BUILD_NUMBER} python version_check.py --version"
+                sh "/usr/bin/docker run --rm ${IMAGE_NAME}:${BUILD_NUMBER} python version_check.py --version"
             }
         }
 
         stage('Deploy') {
             steps {
                 echo 'CD: локально помечаем последний успешный образ тегом latest'
-                sh "docker tag ${IMAGE_NAME}:${BUILD_NUMBER} ${IMAGE_NAME}:latest"
+                sh "/usr/bin/docker tag ${IMAGE_NAME}:${BUILD_NUMBER} ${IMAGE_NAME}:latest"
             }
         }
     }
