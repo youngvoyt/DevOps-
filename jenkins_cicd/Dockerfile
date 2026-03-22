@@ -7,6 +7,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 COPY jenkins-entrypoint.sh /usr/local/bin/jenkins-entrypoint.sh
-RUN chmod +x /usr/local/bin/jenkins-entrypoint.sh
+# Убираем CR (Windows CRLF), иначе контейнер падает сразу после старта
+RUN sed -i 's/\r$//' /usr/local/bin/jenkins-entrypoint.sh \
+    && chmod +x /usr/local/bin/jenkins-entrypoint.sh
 
 ENTRYPOINT ["/usr/local/bin/jenkins-entrypoint.sh"]
