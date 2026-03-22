@@ -22,8 +22,10 @@ pipeline {
                             apt-get update -qq
                             apt-get install -y -qq python3 python3-pip python3-venv
                         fi
-                        python3 -m pip install --user -q -r requirements.txt pylint
-                        python3 -m pylint --fail-under=5.0 --rcfile=.pylintrc src/etl_loader.py app/main.py version_check.py
+                        rm -rf .jenkins-venv
+                        python3 -m venv .jenkins-venv
+                        .jenkins-venv/bin/pip install -q -r requirements.txt pylint
+                        .jenkins-venv/bin/python -m pylint --fail-under=5.0 --rcfile=.pylintrc src/etl_loader.py app/main.py version_check.py
                     '''
                 }
             }
