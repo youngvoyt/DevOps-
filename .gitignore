@@ -6,6 +6,7 @@ __pycache__/
 .venv/
 venv/
 env/
+.jenkins-venv/
 
 # Data files (large data should not be in Git)
 data/*.csv
@@ -21,4 +22,7 @@ Thumbs.db
 
 # Jupyter
 .ipynb_checkpoints/
+
+# Tests / CI
+.pytest_cache/
 
