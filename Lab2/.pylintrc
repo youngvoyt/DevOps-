@@ -3,7 +3,7 @@ init-hook='import sys; sys.path.insert(0, ".")'
 
 [MESSAGES CONTROL]
 disable=missing-module-docstring,missing-function-docstring,missing-class-docstring,
-        no-member,invalid-name,duplicate-code
+        no-member,invalid-name,duplicate-code,import-error
 
 [FORMAT]
 max-line-length=120
