@@ -67,7 +67,6 @@ flowchart LR
 Lab3/
 ├── README.md              # данный отчет
 ├── docs/                  # скриншоты для отчета
-├── artifacts/             # текстовые артефакты kubectl
 └── k8s/
     ├── namespace.yaml
     ├── secret.yaml
