@@ -17,6 +17,11 @@ pipeline {
             steps {
                 dir('Lab2') {
                     sh '''
+                        export DEBIAN_FRONTEND=noninteractive
+                        if ! command -v python3 >/dev/null 2>&1; then
+                            apt-get update -qq
+                            apt-get install -y -qq python3 python3-pip python3-venv
+                        fi
                         python3 -m pip install --user -q -r requirements.txt pylint
                         python3 -m pylint --fail-under=5.0 --rcfile=.pylintrc src/etl_loader.py app/main.py version_check.py
                     '''
