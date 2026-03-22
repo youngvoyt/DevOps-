@@ -1,0 +1,16 @@
+# Сборка: docker compose build && docker compose up -d
+# Jenkins из Dockerfile: Docker CLI внутри контейнера + права на docker.sock при старте.
+services:
+  jenkins:
+    build: .
+    image: jenkins-cdap-lab4:local
+    privileged: true
+    user: root
+    ports:
+      - '8080:8080'
+      - '50000:50000'
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+volumes:
+  jenkins_home:
