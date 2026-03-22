@@ -24,7 +24,7 @@ pipeline {
                         fi
                         rm -rf .jenkins-venv
                         python3 -m venv .jenkins-venv
-                        .jenkins-venv/bin/pip install -q -r requirements.txt pylint
+                        .jenkins-venv/bin/pip install -q pylint
                         .jenkins-venv/bin/python -m pylint --fail-under=5.0 --rcfile=.pylintrc src/etl_loader.py app/main.py version_check.py
                     '''
                 }
