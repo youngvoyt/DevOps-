@@ -1,3 +1,4 @@
+СЛОМАТЬ_СБОРКУ_LAB4
 import os
 from pathlib import Path
 
