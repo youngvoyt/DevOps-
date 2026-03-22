@@ -31,6 +31,22 @@ pipeline {
             }
         }
 
+        // В образе jenkins/jenkins без кастомного Dockerfile часто нет docker CLI — ставим при необходимости (нужны права root в контейнере).
+        stage('Docker CLI') {
+            steps {
+                sh '''
+                    export DEBIAN_FRONTEND=noninteractive
+                    if ! [ -x /usr/bin/docker ]; then
+                        apt-get update -qq
+                        apt-get install -y -qq docker.io
+                    fi
+                    if [ -S /var/run/docker.sock ]; then
+                        chmod 666 /var/run/docker.sock 2>/dev/null || true
+                    fi
+                '''
+            }
+        }
+
         stage('Build Image') {
             steps {
                 dir('Lab2') {
