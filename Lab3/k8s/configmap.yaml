@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: cdap-config
+  namespace: cdap-lab3
+data:
+  DB_HOST: credit-risk-db
+  DB_PORT: "5432"
+  DB_NAME: credit_risk
+  APP_PORT: "8501"
+  LOG_LEVEL: INFO
