@@ -18,6 +18,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY app ./app
 COPY src ./src
 COPY data ./data
+COPY version_check.py .
 
 USER appuser
 
